@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Enroll Core Logik
+Bundle-SymbolicName: de.beuth-hochschule.pfk.enroll.core
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: de.beuth_hochschule.pfk.enroll.core.Activator
+Bundle-Vendor: Julian Heise
+Require-Bundle: org.eclipse.core.runtime
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
