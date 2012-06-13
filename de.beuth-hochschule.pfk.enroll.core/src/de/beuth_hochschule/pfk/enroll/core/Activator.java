@@ -6,7 +6,6 @@ import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 
 import de.beuth_hochschule.pfk.enroll.core.service.EnrollService;
-import de.beuth_hochschule.pfk.enroll.core.service.EnrollServiceImpl;
 
 public class Activator implements BundleActivator {
 

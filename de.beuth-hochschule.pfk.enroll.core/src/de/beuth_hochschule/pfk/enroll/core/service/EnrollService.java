@@ -2,8 +2,8 @@ package de.beuth_hochschule.pfk.enroll.core.service;
 
 import java.util.Collection;
 
-import de.beuth_hochschule.pfk.enroll.core.businessLogik.Course;
-import de.beuth_hochschule.pfk.enroll.core.businessLogik.Student;
+import de.beuth_hochschule.pfk.enroll.core.businessLogic.Course;
+import de.beuth_hochschule.pfk.enroll.core.businessLogic.Student;
 import de.beuth_hochschule.pfk.enroll.core.exception.CourseIsFullException;
 import de.beuth_hochschule.pfk.enroll.core.exception.StudentNotEnrolledException;
 
@@ -75,4 +75,6 @@ public interface EnrollService {
 	 * @throws NoSuchCourseException if the course does not exist in the system
 	 */
 	public void deleteCourse(Course course);
+
+	public Course getCourse(long id);
 }
