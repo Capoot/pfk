@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            allowMultiple="false"
+            class="de.beuth_hochschule.de.pfk.enroll.ui.views.EnrollViewPart"
+            icon="icons/table.png"
+            id="de.beuth_hochschule.de.pfk.enroll.ui.enrollView"
+            name="Enroll View"
+            restorable="true">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <wizard
+            canFinishEarly="false"
+            class="de.beuth_hochschule.de.pfk.enroll.ui.wizards.NewStudentWizard"
+            icon="icons/user_add.png"
+            id="de.beuth_hochschule.de.pfk.enroll.ui.newStudentWizard"
+            name="New Student Wizard">
+      </wizard>
+      <wizard
+            canFinishEarly="false"
+            class="de.beuth_hochschule.de.pfk.enroll.ui.wizards.NewCourseWizard"
+            icon="icons/table_add.png"
+            id="de.beuth_hochschule.de.pfk.enroll.ui.newCourseWizard"
+            name="New Course Wizard">
+      </wizard>
+      <wizard
+            canFinishEarly="false"
+            class="de.beuth_hochschule.de.pfk.enroll.ui.wizards.EnrollWizard"
+            icon="icons/user_go.png"
+            id="de.beuth_hochschule.de.pfk.enroll.ui.enrollWizard"
+            name="Enroll Wizard">
+      </wizard>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="de.beuth_hochschule.de.pfk.enroll.ui.editors.CourseEditor"
+            default="false"
+            icon="icons/table_edit.png"
+            id="de.beuth_hochschule.de.pfk.enroll.ui.courseEditor"
+            name="Course Editor">
+      </editor>
+      <editor
+            class="de.beuth_hochschule.de.pfk.enroll.ui.editors.StudentEditor"
+            default="false"
+            icon="icons/user_edit.png"
+            id="de.beuth_hochschule.de.pfk.enroll.ui.studentEditor"
+            name="Student Editor">
+      </editor>
+   </extension>
+
+</plugin>

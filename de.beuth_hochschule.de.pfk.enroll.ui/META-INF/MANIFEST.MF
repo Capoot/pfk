@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Enroll Ui
+Bundle-SymbolicName: de.beuth_hochschule.de.pfk.enroll.ui;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: de.beuth_hochschule.de.pfk.enroll.ui.Activator
+Bundle-Vendor: Julian Heise
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ de.beuth-hochschule.pfk.enroll.core;bundle-version="1.0.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
