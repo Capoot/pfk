@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Marks Core
+Bundle-SymbolicName: de.beuth-hochschule.pfk.marks.core
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: de.beuth_hochschule.pfk.marks.core.Activator
+Bundle-Vendor: Julian Heise
+Require-Bundle: org.eclipse.core.runtime,
+ de.beuth-hochschule.pfk.enroll.core;bundle-version="1.0.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Export-Package: de.beuth_hochschule.pfk.marks.core.businessLogic,
+ de.beuth_hochschule.pfk.marks.core.service

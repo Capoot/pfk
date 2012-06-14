@@ -1,6 +1,7 @@
 package de.beuth_hochschule.pfk.enroll.core;
 
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -10,11 +11,14 @@ import de.beuth_hochschule.pfk.enroll.core.exception.MatriculationNumberNotUniqu
 import de.beuth_hochschule.pfk.enroll.core.exception.NoSuchCourseException;
 import de.beuth_hochschule.pfk.enroll.core.exception.NoSuchStudentException;
 import de.beuth_hochschule.pfk.enroll.core.service.EnrollService;
+import de.beuth_hochschule.pfk.enroll.core.service.EnrollmentChangedListener;
 
 public class EnrollServiceImpl implements EnrollService {
 
 	private List<Student> students = new LinkedList<Student>();
 	private List<Course> courses = new LinkedList<Course>();
+	
+	private HashSet<EnrollmentChangedListener> listeners = new HashSet<EnrollmentChangedListener>();
 	
 	public EnrollServiceImpl() {
 		// FIXME test data
@@ -26,11 +30,13 @@ public class EnrollServiceImpl implements EnrollService {
 	@Override
 	public void enroll(Student student, Course course) {
 		course.enroll(student);
+		fireEnrollmentChanged();
 	}
 
 	@Override
 	public void cancel(Student student, Course course) {
 		course.cancel(student);
+		fireEnrollmentChanged();
 	}
 
 	@Override
@@ -40,6 +46,7 @@ public class EnrollServiceImpl implements EnrollService {
 		}
 		Student s = new Student(matNr, firstName, name);
 		students.add(s);
+		fireEnrollmentChanged();
 		return s;
 	}
 
@@ -68,6 +75,7 @@ public class EnrollServiceImpl implements EnrollService {
 			throw new NoSuchStudentException();
 		}
 		students.remove(student);
+		fireEnrollmentChanged();
 	}
 
 	@Override
@@ -88,6 +96,7 @@ public class EnrollServiceImpl implements EnrollService {
 	public Course createCourse(String title, int freeSlots) {
 		Course c = new Course(title, freeSlots);
 		courses.add(c);
+		fireEnrollmentChanged();
 		return c;
 	}
 
@@ -97,6 +106,7 @@ public class EnrollServiceImpl implements EnrollService {
 			throw new NoSuchCourseException();
 		}
 		courses.remove(course);
+		fireEnrollmentChanged();
 	}
 	
 	@Override
@@ -107,5 +117,16 @@ public class EnrollServiceImpl implements EnrollService {
 			}
 		}
 		throw new NoSuchCourseException();
+	}
+	
+	@Override
+	public void addEnrollmentChangedListener(EnrollmentChangedListener listener) {
+		listeners.add(listener);
+	}
+
+	private void fireEnrollmentChanged() {
+		for(EnrollmentChangedListener l : listeners) {
+			l.enrollmentChanged();
+		}
 	}
 }

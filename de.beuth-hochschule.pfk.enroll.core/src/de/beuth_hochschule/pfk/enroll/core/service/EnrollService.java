@@ -77,4 +77,6 @@ public interface EnrollService {
 	public void deleteCourse(Course course);
 
 	public Course getCourse(long id);
+
+	void addEnrollmentChangedListener(EnrollmentChangedListener listener);
 }
